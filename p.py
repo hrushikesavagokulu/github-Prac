@@ -8,3 +8,6 @@ for i in range(10, 20):
 
 print("GOKUL")
 print("GOKUL",end=" Is Good Man ! ")
+
+
+print("deva")
