@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Django Page</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            height:100vh;
+            overflow:hidden;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:linear-gradient(-45deg,#0f2027,#203a43,#2c5364,#1a1a2e);
+            background-size:400% 400%;
+            animation:bgAnimation 12s ease infinite;
+            position:relative;
+        }
+
+        @keyframes bgAnimation{
+            0%{
+                background-position:0% 50%;
+            }
+            50%{
+                background-position:100% 50%;
+            }
+            100%{
+                background-position:0% 50%;
+            }
+        }
+
+        .container{
+            text-align:center;
+            z-index:2;
+        }
+
+        h1{
+            font-size:80px;
+            color:white;
+            text-transform:uppercase;
+            letter-spacing:5px;
+            animation:
+                glow 2s infinite alternate,
+                floatText 4s ease-in-out infinite;
+        }
+
+        p{
+            margin-top:20px;
+            font-size:24px;
+            color:#dcdcdc;
+            animation:fadeIn 3s ease;
+        }
+
+        @keyframes glow{
+            from{
+                text-shadow:
+                    0 0 10px #00ffff,
+                    0 0 20px #00ffff,
+                    0 0 40px #00ffff;
+            }
+            to{
+                text-shadow:
+                    0 0 20px #ff00ff,
+                    0 0 40px #ff00ff,
+                    0 0 80px #ff00ff;
+            }
+        }
+
+        @keyframes floatText{
+            0%{
+                transform:translateY(0px);
+            }
+            50%{
+                transform:translateY(-20px);
+            }
+            100%{
+                transform:translateY(0px);
+            }
+        }
+
+        @keyframes fadeIn{
+            from{
+                opacity:0;
+                transform:translateY(30px);
+            }
+            to{
+                opacity:1;
+                transform:translateY(0px);
+            }
+        }
+
+        .circle{
+            position:absolute;
+            border-radius:50%;
+            background:rgba(255,255,255,0.1);
+            animation:move 15s linear infinite;
+            bottom:-150px;
+        }
+
+        .circle:nth-child(1){
+            width:120px;
+            height:120px;
+            left:10%;
+            animation-duration:12s;
+        }
+
+        .circle:nth-child(2){
+            width:180px;
+            height:180px;
+            left:40%;
+            animation-duration:18s;
+        }
+
+        .circle:nth-child(3){
+            width:100px;
+            height:100px;
+            left:70%;
+            animation-duration:10s;
+        }
+
+        .circle:nth-child(4){
+            width:220px;
+            height:220px;
+            left:85%;
+            animation-duration:20s;
+        }
+
+        @keyframes move{
+            0%{
+                transform:translateY(0) rotate(0deg);
+                opacity:0;
+            }
+
+            10%{
+                opacity:1;
+            }
+
+            100%{
+                transform:translateY(-120vh) rotate(720deg);
+                opacity:0;
+            }
+        }
+
+        .btn{
+            margin-top:40px;
+            padding:15px 40px;
+            border:none;
+            border-radius:50px;
+            font-size:20px;
+            cursor:pointer;
+            background:linear-gradient(45deg,#ff00cc,#3333ff);
+            color:white;
+            transition:0.4s;
+            box-shadow:0 0 20px rgba(255,255,255,0.3);
+        }
+
+        .btn:hover{
+            transform:scale(1.1);
+            box-shadow:
+                0 0 20px #ff00cc,
+                0 0 40px #3333ff;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+
+    <div class="container">
+        <h1>Hello Django</h1>
+        <p>Powerful Animated Django Template</p>
+
+        <button class="btn">
+            Explore Now
+        </button>
+    </div>
+
+</body>
+</html>
